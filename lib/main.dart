@@ -19,39 +19,39 @@ class BarChartDemo extends StatefulWidget {
 class _BarChartDemoState extends State<BarChartDemo> {
   final List<BarChartModel> data = [
     BarChartModel(
-      year: '2014',
-      financial: 200,
-      color: charts.ColorUtil.fromDartColor(Colors.black),
-    ),
-    BarChartModel(
-      year: '2015',
-      financial: 450,
-      color: charts.ColorUtil.fromDartColor(Colors.red),
-    ),
-    BarChartModel(
-      year: '2016',
-      financial: 120,
-      color: charts.ColorUtil.fromDartColor(Colors.green),
-    ),
-    BarChartModel(
-      year: '2017',
-      financial: 190,
-      color: charts.ColorUtil.fromDartColor(Colors.yellow),
-    ),
-    BarChartModel(
-      year: '2018',
-      financial: 830,
+      site_ID: 'site 1',
+      cases: 16,
       color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
     ),
     BarChartModel(
-      year: '2019',
-      financial: 950,
-      color: charts.ColorUtil.fromDartColor(Colors.pink),
+      site_ID: 'site 2',
+      cases: 5,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
     ),
     BarChartModel(
-      year: '2020',
-      financial: 1000,
-      color: charts.ColorUtil.fromDartColor(Colors.purple),
+      site_ID: 'site 3',
+      cases: 2,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
+    ),
+    BarChartModel(
+      site_ID: 'site 4',
+      cases: 1,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
+    ),
+    BarChartModel(
+      site_ID: 'site 5',
+      cases: 8,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
+    ),
+    BarChartModel(
+      site_ID: 'site 6',
+      cases: 9,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
+    ),
+    BarChartModel(
+      site_ID: 'site 7',
+      cases: 10,
+      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
     ),
   ];
 
@@ -69,7 +69,7 @@ class _BarChartDemoState extends State<BarChartDemo> {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
@@ -77,7 +77,7 @@ class _BarChartDemoState extends State<BarChartDemo> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("UC Davis BioPortal Bargraph"),
+          title: Text("Cases per site ID"),
           automaticallyImplyLeading: false,
           centerTitle: true,
         ),
@@ -87,8 +87,6 @@ class _BarChartDemoState extends State<BarChartDemo> {
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               children: [
-                BarChartGraph(data: data),
-                BarChartGraph(data: data),
                 BarChartGraph(data: data),
               ],
             ),

@@ -36,21 +36,31 @@ class _BarChartGraphState extends State<BarChartGraph> {
             itemCount: barChartList.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                height: MediaQuery.of(context).size.height / 2.3,
+                height: MediaQuery.of(context).size.height / 1.2,
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Cases",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    Expanded(child: charts.BarChart(series, animate: true)),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(barChartList[index].data.first.year,
+                        Text("Site_ID",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold)),
                       ],
                     ),
-                    Expanded(child: charts.BarChart(series, animate: true)),
                   ],
                 ),
               );
@@ -63,10 +73,10 @@ class _BarChartGraphState extends State<BarChartGraph> {
   Widget build(BuildContext context) {
     List<charts.Series<BarChartModel, String>> series = [
       charts.Series(
-          id: "Financial",
+          id: "Site_ID",
           data: data,
-          domainFn: (BarChartModel series, _) => series.year,
-          measureFn: (BarChartModel series, _) => series.financial,
+          domainFn: (BarChartModel series, _) => series.site_ID,
+          measureFn: (BarChartModel series, _) => series.cases,
           colorFn: (BarChartModel series, _) => series.color),
     ];
 
